@@ -4,7 +4,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import myUserRoute from "./routes/MyUserRoute";
 import { v2 as cloudinary } from "cloudinary";
-import myRestaurantRoute from "./routes/MyResturantRoute";
+import myRestaurantRoute from "./routes/MyRestaurantRoute";
 
 mongoose
     .connect(process.env.MONGODB_CONNECTION_STRING as string)
@@ -20,6 +20,10 @@ cloudinary.config({
 const app = express();
 app.use(express.json())
 app.use(cors())
+
+app.get("/health", async (req: Request, res: Response)=> {
+    res.send({ message: "health OK!" });
+})
 
 // /api/my/user
 app.use("/api/my/user", myUserRoute);
