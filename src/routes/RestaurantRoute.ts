@@ -4,7 +4,7 @@ import RestaurantController from "../controllers/RestaurantController";
 
 const router = express.Router();
 
-// /api/restaurant/search/sanjuan
+// /api/restaurant/search/city
 
 router.get(
   "/search/:city",
@@ -12,7 +12,7 @@ router.get(
     .isString()
     .trim()
     .notEmpty()
-    .withMessage("City parameter ust be a valid string"),
+    .withMessage("City parameter must be a valid string"),
     RestaurantController.searchRestaurant
 );
 

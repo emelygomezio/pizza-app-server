@@ -29,7 +29,7 @@ app.get("/health", async (req: Request, res: Response)=> {
 // /api/my/user
 app.use("/api/my/user", myUserRoute);
 app.use("/api/my/restaurant", myRestaurantRoute);
-app.use("/api/restaurants", restaurantRoute);
+app.use("/api/restaurant", restaurantRoute);
 
 app.listen(4000, ()=> {
     console.log("server started on localhost: 4000");
