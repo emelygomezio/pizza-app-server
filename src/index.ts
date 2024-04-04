@@ -37,9 +37,9 @@ app.listen(4000, ()=> {
 })
 
 // /API TWILIO
-const accountSid = 'AC0d1919907b2df00e175f5fd1d1ad25be';
-const authToken = '1c70ab423ddede595d038299cd8a7071';
-const client = require('twilio')(accountSid, authToken);
+// const accountSid = 'AC0d1919907b2df00e175f5fd1d1ad25be';
+// const authToken = '1c70ab423ddede595d038299cd8a7071';
+// const client = require('twilio')(accountSid, authToken);
 
 // Twilio Text
 // app.get("/send-text", (req, res) => {
@@ -47,16 +47,16 @@ const client = require('twilio')(accountSid, authToken);
     // const { recipient, textmessage } = req.query
 
 // Twilio Whatsapp SMS
-app.post('/whatsapp', async (req, res) => {
-    console.log(req.body);
-    let message = req.body.Body;
-    let senderID = req.body.From;
+// app.post('/whatsapp', async (req, res) => {
+//     console.log(req.body);
+//     let message = req.body.Body;
+//     let senderID = req.body.From;
 
-    console.log(message);
-    console.log(senderID);
+//     console.log(message);
+//     console.log(senderID);
 
 
-});
+// });
 
     // //Send Text
     // client.messages
