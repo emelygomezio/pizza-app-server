@@ -22,8 +22,11 @@ cloudinary.config({
     })
 
 const app = express();
-app.use(express.json())
 app.use(cors())
+
+app.use("/api/order/checkout/webhook", express.raw({ type: "*/*" }));
+
+app.use(express.json())
 
 app.get("/health", async (req: Request, res: Response)=> {
     res.send({ message: "health OK!" });
@@ -40,35 +43,3 @@ app.listen(4000, ()=> {
     console.log("server started on localhost: 4000");
 })
 
-// /API TWILIO
-// const accountSid = 'AC0d1919907b2df00e175f5fd1d1ad25be';
-// const authToken = '1c70ab423ddede595d038299cd8a7071';
-// const client = require('twilio')(accountSid, authToken);
-
-// Twilio Text
-// app.get("/send-text", (req, res) => {
-    // GET variables, passed via query string 
-    // const { recipient, textmessage } = req.query
-
-// Twilio Whatsapp SMS
-// app.post('/whatsapp', async (req, res) => {
-//     console.log(req.body);
-//     let message = req.body.Body;
-//     let senderID = req.body.From;
-
-//     console.log(message);
-//     console.log(senderID);
-
-
-// });
-
-    // //Send Text
-    // client.messages
-    // .create({
-    //     body: 'Help! Abuse happening now. Need assistance immediately. Cannot call.',
-    //     from: 'whatsapp:+14155238886',
-    //     to: 'whatsapp:+17875184160',
-    // }) .then(message => console.log(message.sid))
-    //    .done();
-
-// })
